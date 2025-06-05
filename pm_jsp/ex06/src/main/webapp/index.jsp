@@ -2,11 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FrontController</title>
+    <title>JSP - Hello World</title>
 </head>
 <body>
-<h1>FrontController</h1>
+<h1><%= "Hello World!" %>
+</h1>
 <br/>
-<a href="/todo/list">Todo 목록보기</a>
+<a href="hello-servlet">Hello Servlet</a>
 </body>
 </html>
