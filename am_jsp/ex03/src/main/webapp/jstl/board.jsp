@@ -5,5 +5,6 @@
 </head>
 <body>
 <a href="/jstl/list">게시판 목록</a>
+<%--a태그는 --%>
 </body>
 </html>

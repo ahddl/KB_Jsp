@@ -1,4 +1,4 @@
-package org.scoula.ex03;
+package org.scoula.ex03.command2;
 
 import java.io.*;
 import javax.servlet.http.*;
