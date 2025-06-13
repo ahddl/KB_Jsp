@@ -9,8 +9,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-@EnableWebMvc
-@ComponentScan(basePackages = {"org.scoula.controller"})			// Spring MVC용 컴포넌트 등록을 위한 스캔 패키지
+/*
+웹 요청 처리, 정적 자원 매핑, 뷰 리졸버 설정 등등
+ */
+@EnableWebMvc  //-> Spring Web MVC 를 사용하겠다는 선언 (=디스패쳐서블릿을 동작하겠다)
+@ComponentScan(basePackages = {"org.scoula.controller"})
+// Spring MVC용 컴포넌트 등록을 위한 스캔 패키지
 public class ServletConfig implements WebMvcConfigurer {
 
     //프론트파일(css, js, img)의 위치를 지정해주는 함수
@@ -18,6 +22,7 @@ public class ServletConfig implements WebMvcConfigurer {
     // /resources/밑에서 찾겠다라는 설정
     // <img src="/resources/img/a.png">
 
+    //정적자원 설정
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry
