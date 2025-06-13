@@ -4,12 +4,14 @@ import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+
 import static org.junit.jupiter.api.Assertions.fail;
 
 @Log4j2
-public class JDBCTests {
+public class JDBCTest {
 
     /*
     여기에 여러 설정 잘 되었는지 함수 만들어서 테스트 여러개 할 예정
@@ -30,6 +32,21 @@ public class JDBCTests {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    @Test
+    @DisplayName("JDBC 드라이버 연결이 된다.")
+    public void testConnection() {
+
+        String url = "jdbc:mysql://localhost:3306/scoula_db";
+        try (Connection con = DriverManager.getConnection(url, "scoula", "1234")) {
+
+            log.info(con);
+        } catch (Exception e) {
+            //System.out.println(e.getMessage());
+            fail(e.getMessage());
+
         }
     }
 }
