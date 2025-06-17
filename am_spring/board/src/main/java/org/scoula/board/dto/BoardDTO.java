@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.scoula.board.domain.BoardAttachmentVO;
 import org.scoula.board.domain.BoardVO;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,8 +21,13 @@ public class BoardDTO {
     private String title;
     private String content;
     private String writer;
-    private Date reg_date;
-    private Date update_date;
+    private Date regDate;
+    private Date updateDate;
+
+    // 첨부파일 정보
+    private List<BoardAttachmentVO> attaches;
+    // 실제 업로드된 파일(Multipart) 목록
+    private List<MultipartFile> files = new ArrayList<>();
 
     //복잡하지도 않고, 순서도 상관없이 값을 넣어서 객체를 만들고자 하는 방법
     //Builder객체 이용
@@ -32,8 +39,9 @@ public class BoardDTO {
                 .title(vo.getTitle())
                 .content(vo.getContent())
                 .writer(vo.getWriter())
-                .reg_date(vo.getReg_date())
-                .update_date(vo.getUpdate_date())
+                .attaches(vo.getAttaches())
+                .regDate(vo.getRegDate())
+                .updateDate(vo.getUpdateDate())
                 .build();
 
     }
@@ -45,8 +53,11 @@ public class BoardDTO {
                 .title(title)
                 .content(content)
                 .writer(writer)
-                .reg_date(reg_date)
-                .update_date(update_date)
+                .attaches(attaches)
+                .regDate(regDate)
+                .updateDate(updateDate)
                 .build();
     }
+
+
 }
